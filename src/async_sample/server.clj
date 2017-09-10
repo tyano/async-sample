@@ -30,8 +30,8 @@
 (def config
   {:server.config/port    3000
    :server.config/address "localhost"
-   :server.config/read-channel-builder   (fn [] (chan 1 bytebuf->string))
-   :server.config/write-channel-builder  (fn [] (chan 1 string->bytebuf))
+   :server.config/read-channel-builder   (fn [_] (chan 1 bytebuf->string))
+   :server.config/write-channel-builder  (fn [_] (chan 1 string->bytebuf))
    :server.config/channel-initializer    channel-initializer
    :server.config/server-handler-factory (fn [address port] request-handler)})
 
